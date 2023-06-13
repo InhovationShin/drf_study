@@ -1,0 +1,29 @@
+name: py38_drf
+channels:
+  - defaults
+dependencies:
+  - ca-certificates=2023.05.30=hecd8cb5_0
+  - libcxx=14.0.6=h9765a3e_0
+  - libffi=3.4.4=hecd8cb5_0
+  - ncurses=6.4=hcec6c5f_0
+  - openssl=1.1.1t=hca72f7f_0
+  - pip=23.0.1=py38hecd8cb5_0
+  - python=3.8.16=h218abb5_3
+  - readline=8.2=hca72f7f_0
+  - setuptools=67.8.0=py38hecd8cb5_0
+  - sqlite=3.41.2=h6c40b1e_0
+  - tk=8.6.12=h5d9f67b_0
+  - wheel=0.38.4=py38hecd8cb5_0
+  - xz=5.4.2=h6c40b1e_0
+  - zlib=1.2.13=h4dc903c_0
+  - pip:
+    - asgiref==3.7.2
+    - backports-zoneinfo==0.2.1
+    - django==4.2.2
+    - djangorestframework==3.14.0
+    - mysqlclient==2.1.1
+    - pillow==9.5.0
+    - pytz==2023.3
+    - sqlparse==0.4.4
+    - typing-extensions==4.6.3
+prefix: /Users/shin-inho/opt/anaconda3/envs/py38_drf
