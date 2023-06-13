@@ -9,4 +9,4 @@ class StudentSerializer(serializers.ModelSerializer):
 class ScoreSerializer(serializers.ModelSerializer):
      class Meta:
        model = Score
-       fields = ['student', 'subject', 'score', ]
+       fields = ['student', 'subject', 'score']

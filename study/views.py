@@ -51,10 +51,7 @@ def score_view(request):
       serializer = ScoreSerializer(qs, many=True)
       return Response(serializer.data)
    elif request.method == 'POST':
-         print(request.data)
-
          serializer = ScoreSerializer(data=request.data)
-         
          if serializer.is_valid():
             print(serializer.validated_data)
             serializer.save()
