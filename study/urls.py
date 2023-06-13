@@ -6,4 +6,5 @@ urlpatterns = [
    path('students/<int:pk>/', views.StudentDetailView),
    path('score/', views.score_view),
    path('score/<int:pk>/', views.score_detail_view),
+   path('students/<int:pk>/score/', views.StudentScoreView),
 ]

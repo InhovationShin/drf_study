@@ -21,7 +21,7 @@ def StudentView(request):
        if serializer.is_valid():
            serializer.save()
            return Response(serializer.data, status=status.HTTP_201_CREATED)
-       return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+       return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def StudentDetailView(request, pk):
@@ -56,7 +56,7 @@ def score_view(request):
             print(serializer.validated_data)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-         return Response(serializer.error, status=status.HTTP_400_BAD_REQUEST)
+         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def score_detail_view(request, pk):
@@ -76,3 +76,16 @@ def score_detail_view(request, pk):
    elif request.method == 'DELETE':
        qs.delete()
        return Response(status=status.HTTP_204_NO_CONTENT)
+   
+@api_view(['GET', 'POST'])
+def StudentScoreView(request, pk):
+    qs = get_object_or_404(Students, pk=pk)
+    if request.method == 'GET':
+        serializer = ScoreSerializer(qs.score_set.all(), many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = ScoreSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(student=qs)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
